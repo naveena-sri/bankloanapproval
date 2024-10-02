@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Loan Approval Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .content {
+            margin-left: 320px; /* Adjusted to leave space for the sidebar */
+            padding: 40px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #0909fd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+        <h3>Instructions</h3>
+        <ul>
+            <li>Fill in your name, age, and financial details accurately.</li>
+            <li>Provide your correct ZIP code and family size.</li>
+            <li>Submit the form to check your eligibility for the loan.</li>
+            <li>Make sure to provide details for all fields.</li>
+            <li>Education   1-Undergraduate,2-postgraduate,3-Working professionals</li>
+            <li>Security ACC  1-YES,0-NO</li>
+            <li>CD ACC  1-YES,0-NO</li>
+            <li>Online Banking  1-YES,0-NO</li>
+
+        </ul>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <div class="form-container">
+            <h1>Bank Loan Approval</h1>
+            <form action="/predict" method="POST">
+                <input type="text" name="id" placeholder="ID" required>
+                <input type="text" name="age" placeholder="Age" required>
+                <input type="text" name="experience" placeholder="Experience" required>
+                <input type="text" name="income" placeholder="Income" required>
+                <input type="text" name="zipcode" placeholder="Zip Code" required>
+                <input type="text" name="family" placeholder="Family Size" required>
+                <input type="text" name="ccavg" placeholder="Credit Card Avg" required>
+                <input type="text" name="education" placeholder="Education Level" required>
+                <input type="text" name="mortgage" placeholder="Mortgage" required>
+                <input type="text" name="securities" placeholder="Securities Account" required>
+                <input type="text" name="cdaccount" placeholder="CD Account" required>
+                <input type="text" name="online" placeholder="Online Banking" required>
+                <button type="submit">Submit</button>
+            </form>            
+            
+        </div>
+    </div>
+
+</body>
+</html>
