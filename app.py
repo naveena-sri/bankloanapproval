@@ -1,19 +1,24 @@
 from flask import Flask, render_template, request
 import joblib
+import os
 
 app = Flask(__name__)
-
-# Load your trained model
-model = joblib.load('model.pkl')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.pkl')
+model = joblib.load(MODEL_PATH)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
+
 def predict():
     try:
         # Retrieve and validate form data
+        
+        if request.method == 'GET':
+            return "This route is for form submission only. Go to '/' instead."
+
         data = [
             int(request.form['id']),
             int(request.form['age']),
